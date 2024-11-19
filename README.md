@@ -59,35 +59,30 @@ It’s a convention in most projects to have `docker-compose.yml` at the root fo
 
 ### **4.1 Create Kubernetes Manifests**
 
-```markdown
-# Why Create Separate Deployments and Services for Each Kubernetes Component?
+#### Why Create Separate Deployments and Services for Each Kubernetes Component?
 
 In Kubernetes, each component (e.g., MongoDB, server, client) requires its own **Deployment** and **Service** to ensure clear separation of concerns, scalability, and independent management.
 
-### **1. Separate Deployments**
+**1. Separate Deployments**
 A **Deployment** manages the desired state of an application, ensuring that the specified number of pod replicas are running at all times.  
 Each component (MongoDB, server, client) performs a unique role, so they need individual Deployments to:
 - Define their container image and environment.
 - Enable independent scaling (e.g., scale backend pods without affecting MongoDB).
 
-### **2. Separate Services**
+**2. Separate Services**
 A **Service** provides a stable network interface to access pods, even if their underlying IPs change.  
 Each component needs its own Service to:
 - Expose it to other components or external users (e.g., MongoDB for server, client for end-users).
 - Decouple internal logic (e.g., backend APIs communicate with the database via its service).
 
----
-
-# What is a Deployment?
+### What is a Deployment?
 
 A **Deployment** is a Kubernetes object that:
 - Defines how to run and manage pods for an application.
 - Ensures desired state (e.g., number of replicas, container image version).
 - Provides features like rolling updates and self-healing.
 
----
-
-# What is a Service?
+### What is a Service?
 
 A **Service** is a Kubernetes object that:
 - Exposes pods to the network (internally or externally).
@@ -96,7 +91,7 @@ A **Service** is a Kubernetes object that:
   - **ClusterIP**: Internal communication within the cluster.
   - **NodePort**: Exposes the application on a port of each node.
   - **LoadBalancer**: Distributes traffic using a cloud provider's load balancer.
-```
+
 You can also see the k8s folder I made and all the respective yaml files.
 
 ---
