@@ -1,0 +1,43 @@
+System Requirements
+- OS: Windows/Mac/Linux
+- RAM: Minimum 8GB
+- CPU: 4 cores recommended for local Kubernetes clusters
+
+Software Prerequisites
+1. Node.js (v16 or higher)
+   - Installation: https://nodejs.org/
+   - Command: curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && sudo apt-get install -y nodejs
+   - Verify: node -v, npm -v
+
+2. Docker (latest version)
+   - Installation: https://docs.docker.com/get-docker/
+   - Verify: docker --version
+
+3. Docker Compose (latest version)
+   - Comes with Docker Desktop or install manually:
+     Command: sudo apt-get install docker-compose-plugin
+   - Verify: docker compose version
+
+4. Kubernetes (minikube for local testing)
+   - Installation: https://kubernetes.io/docs/tasks/tools/install-minikube/
+   - Command:
+     ```bash
+     curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+     sudo install minikube-linux-amd64 /usr/local/bin/minikube
+     minikube start
+     ```
+   - Verify: kubectl version, minikube version
+
+5. kubectl (Kubernetes CLI)
+   - Installation: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+   - Command:
+     ```bash
+     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+     ```
+   - Verify: kubectl version
+
+6. Helm (Optional, for managing Kubernetes applications)
+   - Installation: https://helm.sh/docs/intro/install/
+   - Command: curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   - Verify: helm version
